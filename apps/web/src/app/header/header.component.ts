@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import
+
 @Component({
   selector: 'guide-client-header',
   templateUrl: './header.component.html',
