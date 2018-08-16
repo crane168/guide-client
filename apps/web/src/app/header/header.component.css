@@ -1,0 +1,9 @@
+.introduce{
+  display:flex;
+  flex-direction: column;
+  /*background-image: url("../assets/banner.jpg");*/
+}
+.information{
+  display:flex;
+  flex-direction:row;
+}
