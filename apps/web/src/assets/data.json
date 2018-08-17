@@ -1,0 +1,62 @@
+{
+  "hotTopic":[
+    {
+      "chinese":"导游",
+      "english":"Guide"
+    },{
+      "chinese":"租车",
+      "english":"Rent a car"
+    }
+  ],
+  "experience":[
+    {
+     "chinese":"旅行体验",
+      "english":"Travel experience"
+    },{
+     "chinese":"小时服务",
+      "english":"Service by hours"
+    },{
+     "chinese":"接送机",
+      "english":"Transfer"
+    },{
+     "chinese":"专车接送",
+      "english":"Shuttle bus"
+    },{
+     "chinese":"邮轮接送",
+      "english":"Cruise shuttle"
+    },{
+     "chinese":"门票",
+      "english":"Ticket"
+    },{
+     "chinese":"海外游学",
+      "english":"Study Tour"
+    },{
+     "chinese":"海外医疗",
+      "english":"Overseas medical"
+    },{
+     "chinese":"餐厅预定",
+      "english":"Restaurant resevation"
+    },{
+     "chinese":"滑雪",
+      "english":"Skiing"
+    },{
+     "chinese":"潜水",
+      "english":"Diving"
+    },{
+     "chinese":"高尔夫",
+      "english":"Golf"
+    }
+  ],
+  "route":[
+    {
+       "chinese":"旅行路线",
+       "english":"ltinerary"
+    },{
+       "chinese":"巴士拼团",
+       "english":"Bus group"
+    },{
+       "chinese":"定制拼团",
+       "english":"Custom group"
+    }
+  ]
+}

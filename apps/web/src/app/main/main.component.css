@@ -1,0 +1,42 @@
+.list{
+  width:346px;
+  height:130px;
+  background:url("/assets/dy.jpg");
+  list-style:none;
+  margin:20px;
+  position: relative;
+}
+.hot-list{
+  display:flex;
+  flex-direction: row;
+}
+.list>.ceng{
+  position: absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  text-align: center;
+  font-size:25px;
+  color:white;
+  font-weight: bold;
+  font-family:Helvetica;
+  line-height:20px;
+  background: rgba(0,0,0, .4);
+  /*opacity:0.4;*/
+}
+.list>.circle{
+  position: absolute;
+  width:90px;
+  height:90px;
+  left:50%;
+  top:45%;
+  margin:-45px 0 0 -45px;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  font-size:20px!important;
+  line-height:20px;
+  /*margin:0 auto*/
+}
