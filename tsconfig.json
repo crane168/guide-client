@@ -16,7 +16,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@guide-client/guidelib": [
+      "@ngx3-guidelib": [
         "libs/guidelib/src/index.ts"
       ]
     }

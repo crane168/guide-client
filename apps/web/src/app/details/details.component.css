@@ -1,0 +1,52 @@
+.details{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.left{
+  align-self: flex-start;
+}
+.right{
+  width:500px;
+  box-shadow: 1px 1px 4px gray;
+  margin:20px;
+}
+mat-list-item{
+  background-color:rgba(0,0,0,0.2);
+  margin:10px;
+  border-radius: 10px;
+  width:300px;
+  display:flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+.standardForm{
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+.firstInput{
+  width:95%;
+  font-size:20px;
+}
+.half-width{
+  width:45%;
+}
+mat-card,mat-card-content{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+}
+.guide-section{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+mat-checkbox{
+  width:16%;
+}
+
+

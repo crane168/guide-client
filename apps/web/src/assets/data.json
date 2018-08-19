@@ -1,60 +1,94 @@
 {
   "hotTopic":[
     {
+      "state1":"active",
+      "state2":"inactive",
       "chinese":"导游",
       "english":"Guide"
     },{
+      "state1":"active",
+      "state2":"inactive",
       "chinese":"租车",
       "english":"Rent a car"
     }
   ],
   "experience":[
     {
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"旅行体验",
       "english":"Travel experience"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"小时服务",
       "english":"Service by hours"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"接送机",
       "english":"Transfer"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"专车接送",
       "english":"Shuttle bus"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"邮轮接送",
       "english":"Cruise shuttle"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"门票",
       "english":"Ticket"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"海外游学",
       "english":"Study Tour"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"海外医疗",
       "english":"Overseas medical"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"餐厅预定",
       "english":"Restaurant resevation"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"滑雪",
       "english":"Skiing"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"潜水",
       "english":"Diving"
     },{
+      "state1":"active",
+      "state2":"inactive",
      "chinese":"高尔夫",
       "english":"Golf"
     }
   ],
   "route":[
     {
+      "state1":"active",
+      "state2":"inactive",
        "chinese":"旅行路线",
        "english":"ltinerary"
     },{
+      "state1":"active",
+      "state2":"inactive",
        "chinese":"巴士拼团",
        "english":"Bus group"
     },{
+      "state1":"active",
+      "state2":"inactive",
        "chinese":"定制拼团",
        "english":"Custom group"
     }
