@@ -3,14 +3,16 @@
     <h1 class="hot-title">热门</h1>
     <ul class="hot-list">
       <li class="list js-list" *ngFor="let item of hotTopic">
-        <div class="ceng" [@guideState1]="item.state1"
-            (mouseover)="item.toggleState()">
+        <div class="ceng" [style.display]="ceng_display"
+             (mouseover)="toogleState(true)"
+             (mouseleave)="toogleState(false)"
+            >
+             <!--[@guideState]="loginState" (mouseover)="toogleState(true)"-->
           <p class="chinese">{{item.chinese}}</p>
           <p>{{item.english}}</p>
         </div>
-        <div class="circle" [@guideState2]="item.state2"
-             (mouseover)="item.toggleState()">
-          <p><a routerLink="/details">+</a></p>
+        <div class="circle" [style.display]="circle_display" >
+          <p><a routerLink="/details"> + </a></p>
           <p>{{item.chinese}}</p>
         </div>
       </li>
@@ -25,7 +27,7 @@
           <p>{{item.english}}</p>
         </div>
         <div class="circle">
-          <p><a routerLink="/details">+</a></p>
+          <p><a routerLink="/details"> + </a></p>
           <p>{{item.chinese}}</p>
         </div>
       </li>
@@ -40,7 +42,7 @@
           <p>{{item.english}}</p>
         </div>
         <div class="circle">
-          <p><a href="www.yiqihi.com">+</a></p>
+          <p><a routerLink="/details">+</a></p>
           <p>{{item.english}}</p>
         </div>
       </li>

@@ -1,19 +1,13 @@
 <div class="details">
   <div class="left">
     <mat-nav-list>
-      <mat-list-item >
-        基本信息
-        <mat-icon svgIcon="duihao"></mat-icon>&nbsp;
-        <mat-icon svgIcon="laji"></mat-icon>
-      </mat-list-item><mat-list-item >
-        详情描述
-        <mat-icon svgIcon="duihao"></mat-icon>
-      <mat-icon svgIcon="laji"></mat-icon>
-    </mat-list-item><mat-list-item >
-        报价
-        <mat-icon svgIcon="duihao"></mat-icon>
-      <mat-icon svgIcon="laji"></mat-icon>
-    </mat-list-item>
+      <mat-list-item *ngFor="let item of items;let i=index">
+        <div>
+          {{item.name}}
+          <mat-icon svgIcon="{{item.tubiao}}"></mat-icon>&nbsp;
+        </div>
+        <mat-icon svgIcon="{{item.shanchu}}" (click)="deleteItem(i)" class="icons"></mat-icon>
+      </mat-list-item>
     </mat-nav-list>
   </div>
   <div class="right">

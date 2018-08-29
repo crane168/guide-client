@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
-import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './/app-routing.module';
@@ -11,13 +10,16 @@ import { DetailsComponent } from './details/details.component';
 import {MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule, MatCheckboxModule, MatInputModule } from '@angular/material';
-// import { GuideCommonModule } from '@ngx3-guidelib';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+import { GuideCommonModule } from "@ngx3-guidelib";
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, HeaderComponent, DetailsComponent],
+  declarations: [AppComponent, MainComponent, DetailsComponent],
   imports: [
     BrowserModule,
     NxModule.forRoot(),
+    GuideCommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -26,7 +28,7 @@ import { MatCardModule, MatCheckboxModule, MatInputModule } from '@angular/mater
     MatInputModule,
     MatCheckboxModule,
     MatCardModule,
-    // GuideCommonModule
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
