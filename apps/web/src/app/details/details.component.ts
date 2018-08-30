@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {MatChipInputEvent} from '@angular/material';
+import { FormBuilder, FormGroup, Validators,FormControl } from "@angular/forms";
 
 @Component({
   selector: 'guide-client-details',
@@ -9,7 +12,20 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class DetailsComponent implements OnInit {
    items:Celan[];
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+   registerForm: FormGroup;
+   isSubmitted:boolean = false;
+   user = {};
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  trips: Trip[] = [
+    {name: '翻译家'},
+    {name: '老司机'},
+    {name: '商家'},
+  ];
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,private fb:FormBuilder) {
     this.items=[{
       name:"基本信息",
       tubiao:"duihao",
@@ -31,11 +47,50 @@ export class DetailsComponent implements OnInit {
       'laji',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/laji.svg'));
   }
-
   ngOnInit() {
+      this.registerForm = this.fb.group({
+        titleName:['',[Validators.required,Validators.minLength(5)]]
+        home:['',[Validators.required,Validators.minLength(2)]],
+        city:['',[Validators.required,Validators.minLength(2)]],
+        work:['',Validators.required],
+        education:['',Validators.required],
+        birthday:['',[Validators.required,Validators.pattern('(^(19)\\d{2}\\/[0-1][0-9]\\d{2}$)')]],
+        sex:['',Validators.required],
+        identityCard:['',Validators.required],
+        dateForCar:['',Validators.required],
+      })
+  }
+  get f(){
+    return this.registerForm.controls;
   }
   deleteItem(index:number){
     this.items.splice(index,1)
+  }
+  onSubmit(){
+    this.user = this.registerForm.value;
+    console.log(this.user)
+  }
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.trips.push({name: value.trim()});
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(trip: Trip): void {
+    const index = this.trips.indexOf(trip);
+
+    if (index >= 0) {
+      this.trips.splice(index, 1);
+    }
   }
 
 }
@@ -44,4 +99,7 @@ export interface Celan {
       tubiao:string;
       shanchu:string
 
+}
+export interface Trip {
+  name:string;
 }

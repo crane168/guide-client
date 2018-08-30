@@ -27,14 +27,16 @@ export class MainComponent implements OnInit {
   ceng_display : string;
   circle_display: string;
   loginState:string = 'inactive';
-  constructor(private http:HttpClient) {
+  constructor(private http : HttpClient) {
         this.ceng_display = 'block';
         this.circle_display = 'none';
   }
 
   ngOnInit() {
     this.http.get("../../assets/data.json")
-      .subscribe(res=>{this.hotTopic=res.hotTopic})
+      .subscribe(res=>{
+        console.log(typeof res)
+        this.hotTopic=res.hotTopic})
     this.http.get("../../assets/data.json")
       .subscribe(res=>{this.experience=res.experience})
     this.http.get("../../assets/data.json")

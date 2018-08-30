@@ -9,8 +9,10 @@
 }
 .right{
   width:500px;
-  box-shadow: 1px 1px 4px gray;
+  /*box-shadow: 1px 1px 4px gray;*/
   margin:20px;
+  display:flex;
+  flex-direction: column;
 }
 mat-list-item{
   background-color:rgba(0,0,0,0.2);
@@ -53,5 +55,19 @@ mat-card,mat-card-content{
 mat-checkbox{
   width:16%;
 }
-
-
+.feedback{
+  font-size:15px;
+  color:tomato;
+}
+.btn-primary{
+  background-color: lawngreen;
+  color:black;
+  font-size:18px;
+  width:66px;
+  height:25px;
+  text-align: center;
+}
+.example-chip-list {
+  width: 100%;
+  margin-top:2%;
+}
