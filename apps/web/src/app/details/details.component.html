@@ -101,7 +101,8 @@
                  (matChipInputTokenEnd)="add($event)">
         </mat-chip-list>
       </mat-form-field>
-      <p><button class="btn btn-primary" type="submit"> submit</button></p>
+      <!--<p><button mat-raised-button  type="submit" [disabled]="registerForm.invalid" (click)="openDialog()"> submit</button></p>-->
+      <p><button mat-raised-button  type="submit"  (click)="openDialog()"> submit</button></p>
     </form>
     <div class="primary-container">
       <guide-client-table [user]="user"></guide-client-table>
