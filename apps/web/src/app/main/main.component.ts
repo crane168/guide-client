@@ -1,12 +1,18 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 import { Guide } from '../guide';
 
 @Component({
   selector: 'guide-client-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
+  styleUrls: ['./main.component.css']
   // animations:[
   //   trigger('outState',[
   //     state('inactive',style({
@@ -37,27 +43,26 @@ import { Guide } from '../guide';
   // ]
 })
 export class MainComponent implements OnInit {
-  hotTopic:Guide[];
-  experience:Guide[];
-  route:Guide[];
-  ceng_display : string;
+  hotTopic: any[];
+  experience: Guide[];
+  route: Guide[];
+  ceng_display: string;
   circle_display: string;
-  cengState:string = 'inactive';
-  circleState:string = 'out';
-  constructor(private http : HttpClient) {
-
-  }
+  cengState: string = 'inactive';
+  circleState: string = 'out';
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get("../../assets/data.json")
-      .subscribe(res=>{
-        console.log(typeof res)
-        this.hotTopic = res.hotTopic})
-    this.http.get("../../assets/data.json")
-      .subscribe(res=>{this.experience=res.experience})
-    this.http.get("../../assets/data.json")
-      .subscribe(res=>{this.route=res.route})
-
+    this.http.get('../../assets/data.json').subscribe((res: any) => {
+      console.log(res);
+      this.hotTopic = res.hotTopic;
+    });
+    this.http.get('../../assets/data.json').subscribe((res: any) => {
+      this.experience = res.experience;
+    });
+    this.http.get('../../assets/data.json').subscribe((res: any) => {
+      this.route = res.route;
+    });
   }
   // @HostListener('mouseover')
   // onMouseOver($event){
