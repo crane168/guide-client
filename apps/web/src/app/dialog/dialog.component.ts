@@ -18,7 +18,7 @@ export class DialogComponent implements OnInit {
   ngOnInit() {
   }
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close('The dialog was closed');
   }
   toHome(){
     this.router.navigate(['/'])

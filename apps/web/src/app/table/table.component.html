@@ -22,7 +22,7 @@
       <td>{{ user.birthday }}</td>
       <td>{{ user.sex }}</td>
       <td>{{ user.identityCard }}</td>
-      <td>{{ user.dateForCar }}</td>
+      <td>{{ user.dateForCar | date:longDate}}</td>
     </tr>
     </tbody>
   </table>
