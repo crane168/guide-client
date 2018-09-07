@@ -10,7 +10,7 @@
         </div>
         <div class="circle" [ngStyle]="{visibility:'hidden'}"
         >
-          <p><a routerLink="/details"> + </a></p>
+          <p><a [routerLink]="['/details']" [queryParams]="{name: item.chinese}"> + </a></p>
           <p>{{item.chinese}}</p>
         </div>
       </li>
@@ -25,7 +25,7 @@
           <p>{{item.english}}</p>
         </div>
         <div class="circle" [ngStyle]="{visibility:'hidden'}">
-          <p><a routerLink="/details"> + </a></p>
+          <p><a [routerLink]="['/details']" [queryParams]="{name: item.chinese}"> + </a></p>
           <p>{{item.chinese}}</p>
         </div>
       </li>
@@ -40,7 +40,7 @@
           <p>{{item.english}}</p>
         </div>
         <div class="circle" [ngStyle]="{visibility:'hidden'}">
-          <p><a routerLink="/details">+</a></p>
+          <p><a [routerLink]="['/details']" [queryParams]="{name: item.chinese}">+</a></p>
           <p>{{item.english}}</p>
         </div>
       </li>

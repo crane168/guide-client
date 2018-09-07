@@ -1,5 +1,6 @@
 <mat-sidenav-container class="btn-container">
     <mat-sidenav #sidenav [mode]="side">
+      <p><a routerLink="/"><button mat-button (click)="sidenav.toggle()">首页</button></a></p>
       <p><a routerLink="/details"><button mat-button (click)="sidenav.toggle()">详细信息</button></a></p>
     </mat-sidenav>
     <mat-sidenav-content>

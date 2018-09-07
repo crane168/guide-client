@@ -11,8 +11,8 @@ import { Guide } from '../guide';
 
 @Component({
   selector: 'guide-client-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  templateUrl: './main.web.component.html',
+  styleUrls: ['./main.web.component.css']
   // animations:[
   //   trigger('outState',[
   //     state('inactive',style({

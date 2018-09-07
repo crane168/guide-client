@@ -1,17 +1,19 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit, Input } from "@angular/core";
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material';
 import { FormBuilder, FormGroup, Validators,FormControl } from "@angular/forms";
 import { MatDialog, MatDialogRef,MAT_DIALOG_DATA} from "@angular/material";
-import { DialogComponent } from "../dialog/dialog.component";
+import {MatBottomSheet} from '@angular/material';
+import { DialogComponent } from "../dialog/dialog.web.component";
+import { ActivatedRoute } from "@angular/router";
 
 
 @Component({
   selector: 'guide-client-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  templateUrl: './details.web.component.html',
+  styleUrls: ['./details.web.component.css']
 })
 export class DetailsComponent implements OnInit {
     items:Celan[];
@@ -28,10 +30,37 @@ export class DetailsComponent implements OnInit {
       {name: '老司机'},
       {name: '商家'},
     ];
+    queryString:string;
+    langs:{[key:string]:any}[]=[
+       { "language":"英语"},
+       {"language":"法语"},
+       {"language":"日语"},
+       {"language":"韩语"},
+       {"language":"德语"},
+       {"language":"俄语"},
+    ]
+    travels:{[key:string]:any}[]=[
+       { "travelService":"领队"},
+       { "travelService":"导游"},
+       { "travelService":"后勤"},
+       { "travelService":"叫车"},
+       { "travelService":"餐饮"},
+       { "travelService":"娱乐"}
+    ]
+    others:{[key:string]:any}[]=[
+      {"otherService":"代驾"},
+      {"otherService":"遛狗"},
+      {"otherService":"音乐"},
+      {"otherService":"漂流"},
+      {"otherService":"保姆"},
+      {"otherService":"团建"}
+    ]
   constructor(iconRegistry: MatIconRegistry,
               sanitizer: DomSanitizer,
               private fb:FormBuilder,
-              public dialog:MatDialog
+              public dialog:MatDialog,
+              private route:ActivatedRoute,
+              private bottomSheet: MatBottomSheet
     ) {
     this.items=[{
       name:"基本信息",
@@ -55,8 +84,11 @@ export class DetailsComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/laji.svg'));
   }
   ngOnInit() {
+    //获取query中name参数
+    this.queryString = this.route.snapshot.queryParamMap.get('name');
+    console.log(this.queryString)
       this.registerForm = this.fb.group({
-        titleName:['',[Validators.required,Validators.minLength(5)]],
+        titleName:[this.queryString,[Validators.required,Validators.minLength(5)]],
         home:['',[Validators.required,Validators.minLength(2)]],
         city:['',[Validators.required,Validators.minLength(2)]],
         work:['',Validators.required],
@@ -104,16 +136,25 @@ export class DetailsComponent implements OnInit {
         }
       }
       //弹框
-      openDialog():void {
-        const dialogRef = this.dialog.open(DialogComponent, {
-          width: '250px',
+      // openDialog():void {
+      //   const dialogRef = this.dialog.open(DialogComponent, {
+      //     width: window.innerWidth+'px',
+      //     data: {titleName:this.registerForm.value.titleName}
+      //   });
+
+      // dialogRef.afterClosed().
+      // subscribe(result => {
+      //     console.log(result);
+      //   });
+      // }
+      openBottomSheet(): void {
+        const bottomSheetRef=this.bottomSheet.open(DialogComponent,{
           data: {titleName:this.registerForm.value.titleName}
         });
-
-      dialogRef.afterClosed().
-      subscribe(result => {
+        bottomSheetRef.afterDismissed().
+        subscribe(result=>{
           console.log(result);
-        });
+        })
       }
 
 }

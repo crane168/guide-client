@@ -2,8 +2,8 @@ import { Component, ViewChild } from "@angular/core";
 
 @Component({
   selector: 'guide-client-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.web.component.html',
+  styleUrls: ['./app.web.component.scss']
 })
 export class AppComponent {
   title = 'web';

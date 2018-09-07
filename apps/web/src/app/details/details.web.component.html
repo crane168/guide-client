@@ -14,15 +14,16 @@
     <form class="standardForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="firstInput">
         <input matInput placeholder="请输入一个标题" formControlName="titleName" required>
-        <div class="feedback" *ngIf="f.titleName.invalid && f.titleName.dirty"> 至少输入5个字符 </div>
+        <!--<mat-error class="feedback" *ngIf="f.titleName.errors"> 至少输入5个字符 </mat-error>-->
+        <mat-error class="feedback"> 至少输入5个字符 </mat-error>
       </mat-form-field>
       <mat-form-field class="half-width">
         <input matInput placeholder="出生地"  formControlName="home">
-        <div class="feedback" *ngIf="!f.home.valid && f.home.dirty"> 至少输入2个字符 </div>
+        <mat-error class="feedback"> 至少输入2个字符 </mat-error>
       </mat-form-field>
       <mat-form-field class="half-width">
         <input matInput placeholder="目前居住城市"  formControlName="city">
-        <div class="feedback" *ngIf="!f.city.valid && f.city.dirty"> 至少输入2个字符 </div>
+        <mat-error class="feedback"> 至少输入2个字符 </mat-error>
       </mat-form-field>
       <mat-form-field class="half-width">
         <input matInput placeholder="目前职业"  formControlName="work">
@@ -32,7 +33,7 @@
       </mat-form-field>
       <mat-form-field class="half-width">
         <input matInput placeholder="出生年月日"  formControlName="birthday">
-        <div class="feedback" *ngIf="!f.birthday.valid && f.birthday.dirty"> 填写格式必须为1990/0410 </div>
+        <mat-error class="feedback"> 填写格式必须为1990/0410 </mat-error>
       </mat-form-field>
       <mat-form-field class="half-width">
         <mat-select  placeholder="sex" formControlName="sex">
@@ -52,12 +53,7 @@
         <mat-card-content>
           <h2 class="example-h2">会说的语言</h2>
           <section class="guide-section">
-            <mat-checkbox class="example-margin">英语</mat-checkbox>
-            <mat-checkbox class="example-margin">法语</mat-checkbox>
-            <mat-checkbox class="example-margin">德语</mat-checkbox>
-            <mat-checkbox class="example-margin">日语</mat-checkbox>
-            <mat-checkbox class="example-margin">韩语</mat-checkbox>
-            <mat-checkbox class="example-margin">俄语</mat-checkbox>
+            <mat-checkbox class="example-margin" *ngFor="let lang of langs">{{lang.language}}</mat-checkbox>
           </section>
         </mat-card-content>
       </mat-card>
@@ -65,12 +61,7 @@
         <mat-card-content>
           <h2 class="example-h2">旅行专业服务</h2>
           <section class="guide-section">
-            <mat-checkbox class="example-margin">领队</mat-checkbox>
-            <mat-checkbox class="example-margin">导游</mat-checkbox>
-            <mat-checkbox class="example-margin">后勤</mat-checkbox>
-            <mat-checkbox class="example-margin">叫车</mat-checkbox>
-            <mat-checkbox class="example-margin">餐饮</mat-checkbox>
-            <mat-checkbox class="example-margin">娱乐</mat-checkbox>
+            <mat-checkbox class="example-margin" *ngFor="let trav of travels">{{trav.travelService}}</mat-checkbox>
           </section>
         </mat-card-content>
       </mat-card>
@@ -78,12 +69,7 @@
         <mat-card-content>
           <h2 class="example-h2">其他专业服务</h2>
           <section class="guide-section">
-            <mat-checkbox class="example-margin">代驾</mat-checkbox>
-            <mat-checkbox class="example-margin">遛狗</mat-checkbox>
-            <mat-checkbox class="example-margin">音乐</mat-checkbox>
-            <mat-checkbox class="example-margin">漂流</mat-checkbox>
-            <mat-checkbox class="example-margin">保姆</mat-checkbox>
-            <mat-checkbox class="example-margin">团建</mat-checkbox>
+            <mat-checkbox class="example-margin" *ngFor="let other of others">{{other.otherService}}</mat-checkbox>
           </section>
         </mat-card-content>
       </mat-card>
@@ -92,7 +78,7 @@
           <mat-chip *ngFor="let trip of trips" [selectable]="selectable"
                     [removable]="removable" (removed)="remove(trip)">
             {{trip.name}}
-            <mat-icon matChipRemove *ngIf="removable">x</mat-icon>
+            <mat-icon matChipRemove *ngIf="removable">home</mat-icon>
           </mat-chip>
           <input placeholder="请添加旅游标签"
                  [matChipInputFor]="chipList"
@@ -102,10 +88,10 @@
         </mat-chip-list>
       </mat-form-field>
       <!--<p><button mat-raised-button  type="submit" [disabled]="registerForm.invalid" (click)="openDialog()"> submit</button></p>-->
-      <p><button mat-raised-button  type="submit"  (click)="openDialog()"> submit</button></p>
+      <p><button mat-raised-button mat-button type="submit"  (click)="openBottomSheet()"> 资料提交</button></p>
     </form>
-    <div class="primary-container">
-      <guide-client-table [user]="user"></guide-client-table>
-    </div>
+  </div>
+  <div class="primary-container">
+    <guide-client-table [user]="user" ></guide-client-table>
   </div>
 </div>
